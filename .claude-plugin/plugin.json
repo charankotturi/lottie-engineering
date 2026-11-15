@@ -1,7 +1,26 @@
 {
   "name": "lottie-engineering-system",
+  "displayName": "Lottie Engineering System",
   "description": "Research, author, and independently validate Lottie and dotLottie animations across Web, iOS, Android, React Native and Flutter, with evidence labelling so untested claims stay untested.",
   "version": "0.0.0",
-  "author": { "name": "Charan Kotturi" },
-  "keywords": ["lottie", "dotlottie", "animation", "lottiefiles", "validation", "cross-platform"]
+  "author": {
+    "name": "Charan Kotturi",
+    "url": "https://github.com/charankotturi"
+  },
+  "homepage": "https://github.com/charankotturi/lottie-engineering-system",
+  "repository": "https://github.com/charankotturi/lottie-engineering-system",
+  "license": "MIT",
+  "keywords": [
+    "lottie",
+    "dotlottie",
+    "animation",
+    "lottiefiles",
+    "motion-graphics",
+    "validation",
+    "cross-platform",
+    "android",
+    "ios",
+    "flutter",
+    "react-native"
+  ]
 }

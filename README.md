@@ -129,6 +129,10 @@ This repository has **not** queried an authenticated LottieFiles account or run 
 
 See [`PLAN.md`](PLAN.md) for the phased roadmap from this baseline to a fully evidence-backed system.
 
+## License
+
+MIT — see [LICENSE](LICENSE).
+
 ## Updating
 
 Re-run documentation and tool-inventory capture after LottieFiles API changes, or monthly. Keep `knowledge/raw/` immutable and append — upstream changes should surface as reviewable diffs, never silent rewrites. Promote a claim from `UNVERIFIED` only when a real observation is attached.
