@@ -1,0 +1,11 @@
+{
+  "name": "lottie-engineering-system",
+  "owner": { "name": "Charan Kotturi" },
+  "plugins": [
+    {
+      "name": "lottie-engineering-system",
+      "source": "./",
+      "description": "The `lottie` skill: evidence-backed Lottie/dotLottie research, authoring, and cross-runtime validation."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "artifact": "animation.json",
+  "sha256": null,
+  "bytes": null,
+  "canvas": { "w": null, "h": null },
+  "fps": null,
+  "duration_frames": null,
+  "loop": false,
+  "assets": [],
+  "validation_report": null,
+  "runtimes": [
+    { "platform": "web", "player": null, "version": null, "result": "SKIP" },
+    { "platform": "ios", "player": null, "version": null, "result": "SKIP" },
+    { "platform": "android", "player": null, "version": null, "result": "SKIP" },
+    { "platform": "react_native", "player": null, "version": null, "result": "SKIP" },
+    { "platform": "flutter", "player": null, "version": null, "result": "SKIP" }
+  ],
+  "portability_tier": "UNVERIFIED",
+  "limitations": []
+}

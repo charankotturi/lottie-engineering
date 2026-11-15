@@ -1,0 +1,7 @@
+{
+  "schema_file": null,
+  "status": "NOT_CONFIGURED",
+  "reason": "No complete official schema was silently vendored. Configure a pinned schema from the current Lottie specification repository.",
+  "recommended_source": "https://github.com/lottie/lottie-spec",
+  "checked_at": "2026-11-15"
+}

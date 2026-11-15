@@ -1,0 +1,14 @@
+{
+  "name": "lottie-engineering-system",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Extraction, validation and regression helpers for Lottie engineering",
+  "scripts": {
+    "validate": "python skills/lottie/scripts/validate_lottie.py",
+    "test": "python -m unittest discover -s tests -v"
+  },
+  "devDependencies": {
+    "lottie-web": "^5.13.0",
+    "@dotlottie/player-component": "^2.7.12"
+  }
+}

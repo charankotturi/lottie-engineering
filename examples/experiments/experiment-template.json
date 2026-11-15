@@ -1,0 +1,21 @@
+{
+  "id": "replace-with-unique-id",
+  "title": "Capability under test",
+  "surface": "Creator MCP | Platform MCP | WebMCP",
+  "status": "UNVERIFIED",
+  "checked_at": null,
+  "client": null,
+  "server": null,
+  "preconditions": [],
+  "tool_calls": [],
+  "outputs": [],
+  "warnings": [],
+  "errors": [],
+  "export": {
+    "format": null,
+    "sha256": null
+  },
+  "render_checks": [],
+  "conclusion": null,
+  "limitations": []
+}

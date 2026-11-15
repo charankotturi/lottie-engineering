@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Generated output — regenerate rather than commit
+reports/
+
+# Raw capture may contain tokens, signed URLs, or private workspace data.
+# Redact with scripts/normalize_observation.py and commit deliberately.
+knowledge/raw/

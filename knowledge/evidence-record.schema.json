@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lottie evidence record",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "checked_at",
+    "surface",
+    "claim"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "DOCUMENTED",
+        "OBSERVED",
+        "INFERRED",
+        "UNVERIFIED",
+        "CONFLICT"
+      ]
+    },
+    "checked_at": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "experiment_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "client_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "server_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime_versions": {
+      "type": "object"
+    },
+    "raw_observation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

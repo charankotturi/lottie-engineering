@@ -1,0 +1,7 @@
+{
+  "name": "lottie-engineering-system",
+  "description": "Research, author, and independently validate Lottie and dotLottie animations across Web, iOS, Android, React Native and Flutter, with evidence labelling so untested claims stay untested.",
+  "version": "0.0.0",
+  "author": { "name": "Charan Kotturi" },
+  "keywords": ["lottie", "dotlottie", "animation", "lottiefiles", "validation", "cross-platform"]
+}
