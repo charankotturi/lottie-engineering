@@ -1,7 +1,7 @@
 import json, pathlib, subprocess, sys, tempfile, unittest
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 SCRIPT=ROOT/"skills"/"lottie"/"scripts"/"validate_lottie.py"
-VALID=ROOT/"examples"/"patterns"/"minimal-valid.json"
+VALID=ROOT/"skills"/"lottie"/"assets"/"minimal-valid.json"
 
 class ValidatorTests(unittest.TestCase):
     def run_validator(self, data):
