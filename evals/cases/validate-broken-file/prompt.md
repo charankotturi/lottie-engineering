@@ -1,0 +1,1 @@
+this animation json just started failing in our android build - the view loads but nothing draws and we get no error in logcat. file is at FIXTURE_PATH. can you work out what's wrong with it? is it safe to ship once fixed?

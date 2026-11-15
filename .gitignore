@@ -13,3 +13,6 @@ reports/
 # Raw capture may contain tokens, signed URLs, or private workspace data.
 # Redact with scripts/normalize_observation.py and commit deliberately.
 knowledge/raw/
+
+# Eval run output — regenerate rather than commit
+evals/results/

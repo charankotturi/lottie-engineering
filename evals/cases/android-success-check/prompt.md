@@ -1,0 +1,1 @@
+need a success checkmark animation for our android app - circle draws in, check strokes on, settles. about 600ms total, transparent bg, 2 colors max. we render it with airbnb lottie in compose. can you build the lottie json for it? save it as success-check.json in the outputs folder

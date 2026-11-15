@@ -1,0 +1,8 @@
+{
+  "name": "shrink-janky-file",
+  "job": "authoring",
+  "why": "An optimisation task with an objective target. Tests whether size work keeps the file structurally intact rather than trading validity for bytes.",
+  "oracles": ["artifact_validates", "size_reduced", "no_unearned_universality"],
+  "min_reduction_pct": 15,
+  "min_labels": 0
+}

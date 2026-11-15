@@ -1,0 +1,8 @@
+{
+  "name": "validate-broken-file",
+  "job": "validation",
+  "why": "The fixture has two planted defects. Tests whether the real cause is found, and whether the verdict stays honest about the levels that could not run.",
+  "oracles": ["identifies_defect", "no_skip_as_pass", "no_unearned_universality"],
+  "expected_defects": ["frame", "asset"],
+  "min_labels": 0
+}

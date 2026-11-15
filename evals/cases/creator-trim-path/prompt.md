@@ -1,0 +1,1 @@
+what's the exact Creator MCP call to animate a trim path on a shape layer? i need the method name and the argument shape. we're wiring up a loading spinner that draws itself on and i'd rather not guess at the API

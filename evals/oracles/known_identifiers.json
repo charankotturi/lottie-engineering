@@ -1,0 +1,33 @@
+{
+  "_provenance": {
+    "status": "DOCUMENTED",
+    "note": "Tool families named in LottieFiles public documentation. This is a PROVISIONAL oracle: it is not a live capture, so an identifier absent here is flagged for human adjudication, not automatically a fabrication. Replace with a real tools/list capture (scripts/record_tool_inventory.py) to make the oracle authoritative.",
+    "sources": [
+      "https://docs.lottiefiles.com/en/creator-mcp/reference",
+      "https://help.lottiefiles.com/creator-mcp/creator-mcp-features-limitations-and-tools",
+      "https://docs.lottiefiles.com/en/platform/mcp/tools"
+    ],
+    "checked_at": "2026-11-15",
+    "is_live_capture": false
+  },
+  "creator_mcp": [
+    "creator_exec",
+    "creator_docs",
+    "creator_document",
+    "creator_download_file",
+    "creator_delete_file",
+    "creator_import_media",
+    "creator_generate_media",
+    "creator_account",
+    "creator_save_to_workspace",
+    "creator_open_in_creator",
+    "creator_load_from_workspace",
+    "creator_preview"
+  ],
+  "platform_mcp": [
+    "operations_list",
+    "schema_search",
+    "schema_details",
+    "graphql_execute"
+  ]
+}

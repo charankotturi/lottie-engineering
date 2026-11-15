@@ -1,0 +1,1 @@
+this lottie is at FIXTURE_PATH and it stutters badly on our cheaper android devices. the designers exported it straight out of after effects. can you cut it down without wrecking how it looks? write the slimmer version to the outputs folder.

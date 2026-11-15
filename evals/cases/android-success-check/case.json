@@ -1,0 +1,7 @@
+{
+  "name": "android-success-check",
+  "job": "authoring",
+  "why": "Ordinary authoring work. Tests whether portability caveats and a version-qualified runtime claim survive a routine request, and whether anything produced actually validates.",
+  "oracles": ["artifact_validates", "versions_named", "no_unearned_universality", "no_skip_as_pass"],
+  "min_labels": 0
+}

@@ -1,0 +1,1 @@
+we have a lottie with an alpha matte on one layer. it renders fine in the editor and on our web build but the designer swears it broke on iOS last year. we're on lottie-ios 4.x now - is the matte safe to ship or do i need to ask her to rebuild it with a clipping shape?
