@@ -35,11 +35,26 @@ It also refuses to invent API surfaces. LottieFiles exposes Creator MCP, Platfor
 
 ### Claude Code (plugin)
 
+From a shell:
+
 ```bash
+claude plugin marketplace add charankotturi/lottie-engineering-system
+claude plugin install lottie-engineering-system@lottie-engineering-system
+```
+
+Or, from inside Claude Code's own prompt (not a shell — `/plugin` is a slash command, and a shell will just report `no such file or directory`):
+
+```
 /plugin marketplace add charankotturi/lottie-engineering-system
 ```
 
-Then install the `lottie-engineering-system` plugin. The `lottie` skill becomes available in every session.
+Restart your session afterwards for the skill to load. To confirm it's there and see what it costs you:
+
+```bash
+claude plugin details lottie-engineering-system
+```
+
+It adds roughly 180 tokens to every session and about 1.5k when the skill actually fires; reference files load only when a task needs them.
 
 Teammates: install it and use it normally. See **Status** above for what to report back.
 
