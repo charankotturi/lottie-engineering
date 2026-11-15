@@ -1,13 +1,13 @@
 {
-  "name": "lottie-engineering-system",
+  "name": "lottie-engineering",
   "owner": {
     "name": "Charan Kotturi",
     "url": "https://github.com/charankotturi"
   },
   "plugins": [
     {
-      "name": "lottie-engineering-system",
-      "displayName": "Lottie Engineering System",
+      "name": "lottie-engineering",
+      "displayName": "Lottie Engineering",
       "source": "./",
       "description": "The `lottie` skill: evidence-backed Lottie/dotLottie research, authoring, and cross-runtime validation. Discovers LottieFiles MCP tools live rather than recalling them, labels every capability claim, and keeps SKIP distinct from PASS.",
       "author": {
@@ -15,7 +15,7 @@
         "url": "https://github.com/charankotturi"
       },
       "category": "development",
-      "homepage": "https://github.com/charankotturi/lottie-engineering-system",
+      "homepage": "https://github.com/charankotturi/lottie-engineering",
       "license": "MIT",
       "keywords": ["lottie", "dotlottie", "animation", "lottiefiles", "validation", "cross-platform"]
     }

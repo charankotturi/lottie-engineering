@@ -1,4 +1,4 @@
-# Lottie Engineering System
+# Lottie Engineering
 
 A portable agent skill for researching LottieFiles, authoring Lottie/dotLottie animations, and independently validating them across Web, iOS, Android, React Native and Flutter.
 
@@ -38,20 +38,20 @@ It also refuses to invent API surfaces. LottieFiles exposes Creator MCP, Platfor
 From a shell:
 
 ```bash
-claude plugin marketplace add charankotturi/lottie-engineering-system
-claude plugin install lottie-engineering-system@lottie-engineering-system
+claude plugin marketplace add charankotturi/lottie-engineering
+claude plugin install lottie-engineering@lottie-engineering
 ```
 
 Or, from inside Claude Code's own prompt (not a shell — `/plugin` is a slash command, and a shell will just report `no such file or directory`):
 
 ```
-/plugin marketplace add charankotturi/lottie-engineering-system
+/plugin marketplace add charankotturi/lottie-engineering
 ```
 
 Restart your session afterwards for the skill to load. To confirm it's there and see what it costs you:
 
 ```bash
-claude plugin details lottie-engineering-system
+claude plugin details lottie-engineering
 ```
 
 It adds roughly 180 tokens to every session and about 1.5k when the skill actually fires; reference files load only when a task needs them.

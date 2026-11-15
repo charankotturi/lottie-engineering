@@ -23,7 +23,7 @@ def main():
     out=pathlib.Path(args.out); out.mkdir(parents=True,exist_ok=True)
     manifest={"fetched_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"items":[]}
     for name,url in URLS.items():
-        req=urllib.request.Request(url,headers={"User-Agent":"lottie-engineering-system/0.1 (documentation snapshot)"})
+        req=urllib.request.Request(url,headers={"User-Agent":"lottie-engineering/0.0.0 (documentation snapshot)"})
         try:
             with urllib.request.urlopen(req,timeout=args.timeout) as r:
                 body=r.read()
