@@ -1,7 +1,18 @@
 {
   "name": "android-success-check",
   "job": "authoring",
-  "why": "Ordinary authoring work. Tests whether portability caveats and a version-qualified runtime claim survive a routine request, and whether anything produced actually validates.",
-  "oracles": ["artifact_validates", "versions_named", "no_unearned_universality", "no_skip_as_pass"],
+  "why": "Ordinary authoring work, measured on the artifact rather than the prose. Delivery, structural validity and conformance to the stated brief (duration, colors, transparency, actual animation) are all mechanically checkable; the honesty oracles ride along.",
+  "oracles": [
+    "produced_artifact",
+    "artifact_validates",
+    "brief_conformance",
+    "no_unearned_universality",
+    "no_skip_as_pass",
+    "versions_named"
+  ],
+  "expected_duration_ms": 600,
+  "duration_tolerance_ms": 200,
+  "max_colors": 2,
+  "require_transparent": true,
   "min_labels": 0
 }

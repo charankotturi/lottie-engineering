@@ -165,6 +165,101 @@ def oracle_artifact_validates(_text, files, _cfg):
                    f"All {len(targets)} produced file(s) pass structural validation.")
 
 
+def oracle_produced_artifact(_text, files, _cfg):
+    """For authoring work, delivering nothing is the worst outcome, not a non-result.
+
+    This has to be a distinct oracle: artifact_validates reports NOT_APPLICABLE when
+    there is no file, which would quietly exclude a total non-delivery from the pass
+    rate instead of scoring it.
+    """
+    targets = [f for f in files if f.suffix.lower() in (".json", ".lottie")]
+    if not targets:
+        return _result("produced_artifact", "FAIL",
+                       "No .json or .lottie file was produced. The task asked for one.")
+    sizes = ", ".join(f"{f.name} ({f.stat().st_size}B)" for f in targets)
+    return _result("produced_artifact", "PASS",
+                   f"Produced {len(targets)} file(s).", sizes)
+
+
+def _walk(node):
+    if isinstance(node, dict):
+        yield node
+        for v in node.values():
+            yield from _walk(v)
+    elif isinstance(node, list):
+        for v in node:
+            yield from _walk(v)
+
+
+def _distinct_colors(doc):
+    """Distinct solid fill/stroke colors, rounded so float noise doesn't inflate the count."""
+    seen = set()
+    for n in _walk(doc):
+        if n.get("ty") in ("fl", "st") and isinstance(n.get("c"), dict):
+            k = n["c"].get("k")
+            if isinstance(k, list) and k and all(isinstance(x, (int, float)) for x in k):
+                seen.add(tuple(round(float(x), 2) for x in k[:3]))
+    return seen
+
+
+def oracle_brief_conformance(_text, files, cfg):
+    """Does the produced animation actually match the brief it was given?"""
+    targets = [f for f in files if f.suffix.lower() == ".json"]
+    if not targets:
+        return _result("brief_conformance", "FAIL", "No Lottie JSON produced to check.")
+
+    problems, notes = [], []
+    for f in targets:
+        try:
+            doc = json.loads(f.read_text())
+        except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+            problems.append(f"{f.name}: unparseable ({exc.__class__.__name__})")
+            continue
+
+        want_ms = cfg.get("expected_duration_ms")
+        if want_ms:
+            fr, ip, op = doc.get("fr"), doc.get("ip", 0), doc.get("op")
+            if not fr or op is None:
+                problems.append(f"{f.name}: no usable fr/op to derive duration")
+            else:
+                got_ms = (op - ip) / fr * 1000
+                tol = cfg.get("duration_tolerance_ms", 150)
+                notes.append(f"{got_ms:.0f}ms")
+                if abs(got_ms - want_ms) > tol:
+                    problems.append(f"{f.name}: {got_ms:.0f}ms vs brief {want_ms}ms (±{tol})")
+
+        max_colors = cfg.get("max_colors")
+        if max_colors:
+            cols = _distinct_colors(doc)
+            notes.append(f"{len(cols)} color(s)")
+            if len(cols) > max_colors:
+                problems.append(f"{f.name}: {len(cols)} distinct colors, brief allows {max_colors}")
+
+        if cfg.get("require_transparent"):
+            solids = [n for n in _walk(doc)
+                      if n.get("ty") == 1 and isinstance(n.get("sw"), (int, float))]
+            full = [n for n in solids
+                    if n.get("sw", 0) >= doc.get("w", 0) and n.get("sh", 0) >= doc.get("h", 0)]
+            if full:
+                problems.append(f"{f.name}: {len(full)} full-canvas solid layer(s); brief wants transparency")
+
+        layers = doc.get("layers")
+        if not isinstance(layers, list) or not layers:
+            problems.append(f"{f.name}: no layers, so nothing would draw")
+        else:
+            notes.append(f"{len(layers)} layer(s)")
+            animated = any(
+                isinstance(n, dict) and n.get("a") == 1 and isinstance(n.get("k"), list)
+                for n in _walk(layers)
+            )
+            if not animated:
+                problems.append(f"{f.name}: no animated property found; a static frame is not an animation")
+
+    detail = "; ".join(problems) if problems else "Matches the brief on every checked dimension."
+    return _result("brief_conformance", "FAIL" if problems else "PASS",
+                   detail, "; ".join(notes))
+
+
 def oracle_identifies_defect(text, _files, cfg):
     """For validation cases: did it name the defect the fixture actually has?"""
     expected = cfg.get("expected_defects", [])
@@ -221,6 +316,8 @@ ORACLES = {
     "versions_named": oracle_versions_named,
     "labels_present": oracle_labels_present,
     "artifact_validates": oracle_artifact_validates,
+    "produced_artifact": oracle_produced_artifact,
+    "brief_conformance": oracle_brief_conformance,
     "identifies_defect": oracle_identifies_defect,
     "defers_to_discovery": oracle_defers_to_discovery,
     "size_reduced": oracle_size_reduced,
